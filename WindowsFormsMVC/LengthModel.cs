@@ -6,13 +6,6 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsMVC
 {
-    struct LengthData
-    {
-        public int start;
-        public int end;
-        public int length;
-    }
-
     class LengthModel
     {
         static List<LengthModel> lengths = new List<LengthModel>();

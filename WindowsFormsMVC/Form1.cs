@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsMVC
 {
-    delegate void TextBox_SetText(LengthData value);
+    delegate void TextBox_SetText();
 
     public partial class Form1 : Form
     {
@@ -33,27 +33,22 @@ namespace WindowsFormsMVC
             Console.WriteLine(Convert.ToInt32(((TextBox)sender).Text));
             model_Ctrl.SetData(Convert.ToInt32(((TextBox)sender).Text));
 
-            SetText(new LengthData
-            {
-                start = LengthModel.GetModel(LengthType.start).Value,
-                end = LengthModel.GetModel(LengthType.end).Value,
-                length = LengthModel.GetModel(LengthType.length).Value
-            });
+            SetText();
         }
 
-        void TextBox_Start_SetText(LengthData value)
+        void TextBox_Start_SetText()
         {
-            textBoxStart.Text = value.start.ToString();
+            textBoxStart.Text = LengthModel.GetModel(LengthType.start).Value.ToString();
         }
 
-        void TextBox_End_SetText(LengthData value)
+        void TextBox_End_SetText()
         {
-            textBoxEnd.Text = value.end.ToString();
+            textBoxEnd.Text = LengthModel.GetModel(LengthType.end).Value.ToString();
         }
 
-        void TextBox_Length_SetText(LengthData value)
+        void TextBox_Length_SetText()
         {
-            textBoxLength.Text = value.length.ToString();
+            textBoxLength.Text = LengthModel.GetModel(LengthType.length).Value.ToString();
         }
 
     }
